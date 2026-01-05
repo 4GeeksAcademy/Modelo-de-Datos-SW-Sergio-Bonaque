@@ -20,3 +20,9 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
+class Planet(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    climate: Mapped[str] = mapped_column(String(50))
+    population: Mapped[int] = mapped_column(nullable=True)  
+
