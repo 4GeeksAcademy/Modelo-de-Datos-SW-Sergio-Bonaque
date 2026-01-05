@@ -32,3 +32,12 @@ class Character(db.Model):
     birth_year: Mapped[str] = mapped_column(String(20))   
     gender: Mapped[str] = mapped_column(String(20))
 
+class Favorite(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.id"), nullable=False)
+    
+
+    character_id: Mapped[int] = mapped_column(nullable=True)  
+    planet_id: Mapped[int] = mapped_column(nullable=True)     
+
+    user = relationship("User", back_populates="favorites")
