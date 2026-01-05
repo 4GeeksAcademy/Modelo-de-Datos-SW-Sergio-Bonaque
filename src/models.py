@@ -26,3 +26,9 @@ class Planet(db.Model):
     climate: Mapped[str] = mapped_column(String(50))
     population: Mapped[int] = mapped_column(nullable=True)  
 
+class Character(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    birth_year: Mapped[str] = mapped_column(String(20))   
+    gender: Mapped[str] = mapped_column(String(20))
+
